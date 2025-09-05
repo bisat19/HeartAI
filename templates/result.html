@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/result.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="image-container">
+            <img src="/static/Thorax anatomy.jpeg" alt="Heart Anatomy" class="heart-image">
+        </div>
+
+        <div class="result-container">
+            <div class="result-card health-card">
+                <div class="chart-container">
+                    <canvas id="healthChart"></canvas>
+                    <div class="chart-text">
+                        <span id="health-percentage">89</span>%
+                    </div>
+                </div>
+                <div class="health-status">
+                    <h2>Health Score</h2>
+                    <p id="risk-status">Low Risk of Heart Disease</p>
+                </div>
+            </div>
+
+            <div class="result-card tips-card">
+                <h2>Ways to Improve Your Health</h2>
+                <div id="prevention-tips" class="tips-grid">
+                    </div>
+            </div>
+            
+            <a href="/" class="btn-back">← Back to Form</a>
+        </div>
+    </div>
+
+    <script src="/static/result.js"></script>
+</body>
+</html>

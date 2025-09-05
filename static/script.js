@@ -59,26 +59,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Event listener untuk form submission
+    // Event listener untuk form submission (INI YANG DIUBAH)
     form.addEventListener('submit', (e) => {
         e.preventDefault(); // Mencegah form reload halaman
-
-        // Di sini Anda akan menambahkan logika untuk mengirim data ke model ML
-        // Untuk sekarang, kita hanya akan menampilkan alert
         
+        // Tampilkan loading state jika perlu
+        submitBtn.innerText = 'Predicting...';
+        submitBtn.disabled = true;
+
         const formData = new FormData(form);
-        let data = {};
-        for (let [key, value] of formData.entries()) {
-            data[key] = value;
-        }
+        const data = Object.fromEntries(formData.entries());
 
-        console.log("Data yang akan dikirim:", data);
-        alert('Formulir berhasil dikirim! Logika prediksi akan berjalan di sini.');
-        
-        // Anda bisa me-reset form jika diperlukan
-        // form.reset();
-        // currentSlide = 0;
-        // showSlide(currentSlide);
+        // Kirim data ke Flask backend
+        fetch('https://psychic-enigma-v4645wp9wrgcpjqq-5000.app.github.dev/predict', { // URL Flask API Anda
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.error) {
+                alert(`An error occurred: ${result.error}`);
+                submitBtn.innerText = 'Predict';
+                submitBtn.disabled = false;
+            } else {
+                // Simpan hasil ke sessionStorage untuk diakses di halaman berikutnya
+                sessionStorage.setItem('predictionResult', JSON.stringify(result));
+                // Arahkan ke halaman hasil
+                window.location.href = '/result';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Could not connect to the prediction service.');
+            submitBtn.innerText = 'Predict';
+            submitBtn.disabled = false;
+        });
     });
 
     // Inisialisasi: tampilkan slide pertama saat halaman dimuat

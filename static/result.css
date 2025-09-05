@@ -1,0 +1,178 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Work+Sans:wght@400;500;700&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Left Image Container */
+.image-container {
+    flex-basis: 45%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.heart-image {
+    width: 90%;
+    max-width: 400px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Right Result Container */
+.result-container {
+    flex-basis: 55%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: #fafafa;
+}
+
+.result-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Health Card Styling */
+.health-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.chart-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.chart-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #D32F2F;
+}
+
+.health-status h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.health-status p {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Tips Card Styling */
+.tips-card h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.tip-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tip-item .icon {
+    font-size: 1.5rem;
+}
+
+.tip-item .text {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Back Button */
+.btn-back {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: #D32F2F;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+    transform: translateX(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .image-container {
+        padding: 40px 20px;
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+    .result-container {
+        padding: 30px;
+    }
+    .health-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
