@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="image-container">
+            <img src="Thorax anatomy.jpeg" alt="Heart Anatomy" class="heart-image">
+            </div>
+
+        <div class="form-container">
+            <form id="prediction-form">
+                <div class="form-header">
+                    <h1>Prediction Form</h1> <div class="progress-bar">
+                        <div class="progress-step active" data-step="1">1</div>
+                        <div class="progress-step" data-step="2">2</div>
+                        <div class="progress-step" data-step="3">3</div>
+                        <div class="progress-step" data-step="4">4</div>
+                    </div>
+                </div>
+
+                <div class="form-slide active" data-slide="0">
+                    <h3 class="slide-title">Basic Information</h3> <div class="input-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" placeholder="e.g. 52" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="chest_pain">Chest Pain Type</label>
+                        <select id="chest_pain" name="chest_pain" required>
+                            <option value="0">Typical Angina</option>
+                            <option value="1">Atypical Angina</option>
+                            <option value="2">Non-anginal Pain</option>
+                            <option value="3">Asymptomatic</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-slide" data-slide="1">
+                    <h3 class="slide-title">Medical Data</h3> <div class="input-group">
+                        <label for="blood_pressure">Resting Blood Pressure (mmHg)</label>
+                        <input type="number" id="blood_pressure" name="blood_pressure" placeholder="e.g. 120" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="cholesterol">Serum Cholesterol (mg/dl)</label>
+                        <input type="number" id="cholesterol" name="cholesterol" placeholder="e.g. 210" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="fasting_sugar">Fasting Blood Sugar > 120 mg/dl</label>
+                        <select id="fasting_sugar" name="fasting_sugar" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-slide" data-slide="2">
+                     <h3 class="slide-title">Electrocardiogram (ECG) Results</h3> <div class="input-group">
+                        <label for="ecg_result">Resting ECG Results</label>
+                        <select id="ecg_result" name="ecg_result" required>
+                            <option value="0">Normal</option>
+                            <option value="1">ST-T Wave Abnormality</option>
+                            <option value="2">Left Ventricular Hypertrophy</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="heart_rate">Maximum Heart Rate Achieved</label>
+                        <input type="number" id="heart_rate" name="heart_rate" placeholder="e.g. 150" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="exercise_angina">Exercise Induced Angina</label>
+                        <select id="exercise_angina" name="exercise_angina" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-slide" data-slide="3">
+                    <h3 class="slide-title">Advanced Data</h3> <div class="input-group">
+                        <label for="st_depression">ST Depression</label>
+                        <input type="number" step="0.1" id="st_depression" name="st_depression" placeholder="e.g. 1.6" required>
+                    </div>
+                     <div class="input-group">
+                        <label for="st_slope">Slope of Peak Exercise ST Segment</label>
+                        <select id="st_slope" name="st_slope" required>
+                            <option value="0">Upsloping</option>
+                            <option value="1">Flat</option>
+                            <option value="2">Downsloping</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="vessels_count">Number of Major Vessels (0-3)</label>
+                        <input type="number" id="vessels_count" name="vessels_count" min="0" max="3" placeholder="0-3" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="thalassemia_type">Thalassemia Type</label>
+                        <select id="thalassemia_type" name="thalassemia_type" required>
+                            <option value="1">Normal</option>
+                            <option value="2">Fixed Defect</option>
+                            <option value="3">Reversible Defect</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button type="button" id="prev-btn" class="btn btn-secondary">Previous</button> <button type="button" id="next-btn" class="btn">Next</button> <button type="submit" id="submit-btn" class="btn">Predict</button> </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Work+Sans:wght@400;500;700&display=swap');
+
+/* Reset dan Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    /* Latar belakang body tetap putih dominan */
+    background: #f0f2f5 url('https://www.transparenttextures.com/patterns/cubes.png');
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Kontainer Utama */
+.main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 700px;
+    background: white; /* Kontainer utama dominan putih */
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Kolom Gambar (Kiri) */
+.image-container {
+    flex-basis: 50%;
+    /* Latar belakang diubah menjadi putih solid */
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    color: white; /* Teks putih ini sekarang tidak akan terlihat karena tidak ada teks */
+}
+
+.heart-image {
+    width: 100%;
+    max-width: 350px;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* image-text dihapus */
+.image-text {
+    display: none; /* Menyembunyikan teks sepenuhnya */
+}
+
+
+/* Animasi untuk gambar jantung */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Kolom Form (Kanan) - Efek Glassmorphism */
+.form-container {
+    flex-basis: 50%;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Glassmorphism tetap ada, tapi latar belakang lebih terang */
+    background: rgba(255, 255, 255, 0.7); /* Lebih terang dari sebelumnya */
+    backdrop-filter: blur(20px); /* Sedikit mengurangi blur */
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.3); /* Border lebih transparan */
+}
+
+#prediction-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #C62828; /* Warna merah dominan untuk judul */
+}
+
+/* Progress Bar */
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+}
+.progress-step {
+    width: 30px;
+    height: 30px;
+    background-color: #ffebee; /* Latar belakang langkah belum aktif */
+    border: 1px solid #ef9a9a; /* Border tipis */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #ef5350; /* Warna teks langkah belum aktif */
+    transition: all 0.4s ease;
+    z-index: 2;
+}
+.progress-step.active {
+    background-color: #ef5350; /* Warna merah dominan untuk langkah aktif */
+    color: white;
+    transform: scale(1.2);
+}
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #ef9a9a; /* Warna garis progress bar */
+    z-index: 1;
+}
+
+/* Slides Form */
+.form-slide {
+    display: none;
+    flex-grow: 1;
+}
+
+.form-slide.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #D32F2F; /* Warna merah dominan untuk judul slide */
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #D32F2F; /* Warna merah saat focus */
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+}
+
+/* Tombol Navigasi */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 5px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Tombol Next dan Submit */
+#next-btn, #submit-btn {
+    background: linear-gradient(90deg, #E53935, #D32F2F); /* Gradasi merah */
+    color: white;
+    box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
+}
+
+#next-btn:hover, #submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 57, 53, 0.4);
+}
+
+/* Tombol Secondary (Previous) */
+.btn-secondary {
+    background-color: #ef9a9a; /* Merah muda */
+    color: #555;
+}
+
+.btn-secondary:hover {
+    background-color: #e57373; /* Merah muda yang sedikit lebih gelap */
+}
+
+#prev-btn, #submit-btn {
+    display: none; /* Sembunyikan secara default */
+}
+
+
+/* Desain Responsif */
+@media (max-width: 992px) {
+    .main-container {
+        flex-direction: column;
+        min-height: auto;
+        height: auto;
+    }
+    .image-container, .form-container {
+        flex-basis: auto;
+    }
+    .image-container {
+        padding: 50px 20px;
+        min-height: 40vh;
+        /* Tambahkan gradasi merah samar untuk sentuhan estetika pada mobile */
+        background: linear-gradient(180deg, #FFEBEE, #FFFFFF); 
+    }
+    .heart-image {
+        width: 60%; /* Sesuaikan ukuran jantung di mobile */
+    }
+    .form-container {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+    .main-container {
+        border-radius: 0;
+    }
+    .form-container {
+        padding: 30px 20px;
+    }
+    .form-header h1 {
+        font-size: 1.8rem;
+    }
+    .navigation-buttons {
+        flex-direction: column-reverse;
+    }
+    .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
